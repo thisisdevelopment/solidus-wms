@@ -7,7 +7,7 @@ describe Spree::Order do
     it { is_expected.to_not be_empty }
 
     context 'when the order is exported' do
-      before { order.export }
+      before { order.export! }
 
       it { is_expected.to be_empty }
     end
@@ -19,7 +19,7 @@ describe Spree::Order do
     it { is_expected.to be_empty }
 
     context 'when the order is exported' do
-      before { order.export }
+      before { order.export! }
 
       it { is_expected.to_not be_empty }
     end

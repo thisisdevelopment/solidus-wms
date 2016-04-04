@@ -14,6 +14,8 @@ describe Spree::Order do
   end
 
   context 'when order is incomplete' do
+    let!(:order) { create(:order) }
+
     it 'should raise an error' do
       expect { order.export! }.to raise_error(ActiveRecord::ActiveRecordError)
     end
