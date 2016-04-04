@@ -36,4 +36,4 @@ Simply add this require statement to your spec_helper:
 require 'solidus_wms/factories'
 ```
 
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
+Copyright (c) 2016 Seb Ashton and [Made Tech](https://www.madetech.com) released under the New BSD License
