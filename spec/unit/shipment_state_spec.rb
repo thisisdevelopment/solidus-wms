@@ -1,11 +1,11 @@
-xdescribe Spree::Shipment do
+describe Spree::Shipment do
   let!(:order) { create(:order_ready_to_ship) }
 
   let(:shipment) { order.shipments.first }
 
-  context 'when the shipment is pending' do
-    subject { shipment.state }
+  subject { shipment.state }
 
+  context 'when the shipment is pending' do
     before do
       shipment.receive!
     end
@@ -30,7 +30,12 @@ xdescribe Spree::Shipment do
   end
 
   context 'when the order has been exported' do
-    it 'can not be shipped from ready state' do
+    subject do
+      -> { shipment.ship! }
     end
+
+    before { shipment.order.export! }
+
+    it { is_expected.to raise_error(StateMachines::InvalidTransition) }
   end
 end
