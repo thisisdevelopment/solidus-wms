@@ -30,12 +30,8 @@ describe Spree::Shipment do
   end
 
   context 'when the order has been exported' do
-    subject do
-      -> { shipment.ship! }
-    end
-
     before { shipment.order.export! }
 
-    it { is_expected.to raise_error(StateMachines::InvalidTransition) }
+    it { expect { shipment.ship! }.to raise_error(StateMachines::InvalidTransition) }
   end
 end
