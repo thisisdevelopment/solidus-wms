@@ -1,10 +1,10 @@
 # encoding: UTF-8
-#$:.push File.expand_path('../lib', __FILE__)
-#require 'solidus_wms/version'
+# $:.push File.expand_path('../lib', __FILE__)
+# require 'solidus_wms/version'
 
 Gem::Specification.new do |s|
   s.name        = 'solidus_wms'
-  #s.version     = SolidusWms::VERSION
+  # s.version     = SolidusWms::VERSION
   s.version     = '0.0.1'
   s.summary     = 'A WMS extension for solidus'
   s.description = s.summary
