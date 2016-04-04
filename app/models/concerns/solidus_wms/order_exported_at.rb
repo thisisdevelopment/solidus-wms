@@ -12,7 +12,9 @@ module SolidusWms
       end
     end
 
-    def export
+    def export!
+      raise ActiveRecord::ActiveRecordError unless complete?
+
       touch(:exported_at)
     end
 

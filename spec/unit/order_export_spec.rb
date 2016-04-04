@@ -7,9 +7,15 @@ describe Spree::Order do
 
   context 'when the order is exported' do
     before do
-      order.export
+      order.export!
     end
 
     it { is_expected.to be true }
+  end
+
+  context 'when order is incomplete' do
+    it 'should raise an error' do
+      expect { order.export! }.to raise_error(ActiveRecord::ActiveRecordError)
+    end
   end
 end
