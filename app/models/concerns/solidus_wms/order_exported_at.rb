@@ -2,6 +2,16 @@ module SolidusWms
   module OrderExportedAt
     extend ActiveSupport::Concern
 
+    included do
+      def self.exported
+        where.not(exported_at: nil)
+      end
+
+      def self.not_exported
+        where(exported_at: nil)
+      end
+    end
+
     def export
       touch(:exported_at)
     end
