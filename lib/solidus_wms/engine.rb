@@ -5,6 +5,8 @@ module SolidusWms
     isolate_namespace Spree
     engine_name 'solidus_wms'
 
+    config.view_versions = [1]
+
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
@@ -22,6 +24,7 @@ module SolidusWms
       Spree::Shipment.include(SolidusWms::ShipmentStatemachineTransitions)
       Spree::Shipment.whitelisted_ransackable_attributes << 'state'
       Spree::Shipment.whitelisted_ransackable_attributes << 'created_at'
+      Spree::Api::ShipmentsController.include(SolidusWms::AdditionalShipmentsApiActions)
     end
 
     config.to_prepare(&method(:activate).to_proc)

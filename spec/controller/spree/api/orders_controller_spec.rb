@@ -13,11 +13,13 @@ describe Spree::Api::OrdersController, type: :controller do
       with(:admin, Spree::Order).
       and_return(true)
 
+    request.headers["X-API-Version"] = 1
+
     stub_authentication!
   end
 
   it 'will export an order' do
-    api_put(:export, id: order.to_param)
+    api_put(:export, id: order.to_param, api_version: 1)
 
     order.reload
 
@@ -30,7 +32,7 @@ describe Spree::Api::OrdersController, type: :controller do
     let!(:order) { create(:order) }
 
     it 'will not export an order' do
-      api_put(:export, id: order.to_param)
+      api_put(:export, id: order.to_param, api_version: 1)
 
       expect(response.status).to eq 422
 
