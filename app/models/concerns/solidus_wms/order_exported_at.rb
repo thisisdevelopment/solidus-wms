@@ -10,6 +10,10 @@ module SolidusWms
       def self.not_exported
         where(exported_at: nil)
       end
+
+      def self.to_export(timestamp)
+        not_exported.where(shipment_state: 'ready').where("completed_at >= ?", timestamp)
+      end
     end
 
     def export!
