@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'solidus_core', '~> 1.0'
+  s.add_dependency 'solidus_api', '~> 1.0'
 
   s.add_development_dependency 'byebug', '8.2.1'
   s.add_development_dependency 'capybara'
@@ -27,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'poltergeist'
   s.add_development_dependency 'pry-byebug', '3.3.0'
   s.add_development_dependency 'pry-rails', '0.3.4'
+  s.add_development_dependency 'rspec-activemodel-mocks', '~>1.0.2'
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'rubocop', '0.37.2'
   s.add_development_dependency 'rubocop-rspec', '1.4.0'

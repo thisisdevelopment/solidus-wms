@@ -1,6 +1,7 @@
 module SolidusWms
   class Engine < Rails::Engine
     require 'spree/core'
+
     isolate_namespace Spree
     engine_name 'solidus_wms'
 
@@ -16,6 +17,7 @@ module SolidusWms
 
       Spree::Order.include(SolidusWms::OrderExportedAt)
       Spree::Order.whitelisted_ransackable_attributes << 'exported_at'
+      Spree::Api::OrdersController.include(SolidusWms::OrderExport)
 
       Spree::Shipment.include(SolidusWms::ShipmentStatemachineTransitions)
       Spree::Shipment.whitelisted_ransackable_attributes << 'state'

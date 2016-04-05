@@ -17,7 +17,7 @@ describe Spree::Order do
     let!(:order) { create(:order) }
 
     it 'should raise an error' do
-      expect { order.export! }.to raise_error(ActiveRecord::ActiveRecordError)
+      expect { order.export! }.to raise_error(StandardError)
     end
   end
 end
