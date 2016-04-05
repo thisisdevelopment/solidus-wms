@@ -11,8 +11,6 @@ describe Spree::Api::ShipmentsController, type: :controller do
   subject { shipment.state }
 
   before do
-    include ApiControllerMethods
-
     allow_any_instance_of(Spree::Ability).to receive(:can?).
       and_return(true)
 
@@ -27,6 +25,7 @@ describe Spree::Api::ShipmentsController, type: :controller do
   context 'will mark a shipment as received' do
     before do
       api_put :receive, id: shipment.to_param
+
       shipment.reload
     end
 
@@ -35,6 +34,7 @@ describe Spree::Api::ShipmentsController, type: :controller do
     context 'then will mark a shipment as picked' do
       before do
         api_put :pick, id: shipment.to_param
+
         shipment.reload
       end
 
@@ -43,6 +43,7 @@ describe Spree::Api::ShipmentsController, type: :controller do
       context 'then will ship a picked shipment' do
         before do
           api_put :ship, id: shipment.to_param, send_mailer: nil
+
           shipment.reload
         end
 
