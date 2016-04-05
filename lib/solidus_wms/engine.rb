@@ -5,8 +5,6 @@ module SolidusWms
     isolate_namespace Spree
     engine_name 'solidus_wms'
 
-    config.view_versions = [1]
-
     # use rspec for tests
     config.generators do |g|
       g.test_framework :rspec
