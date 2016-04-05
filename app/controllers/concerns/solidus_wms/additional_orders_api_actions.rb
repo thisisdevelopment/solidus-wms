@@ -20,5 +20,3 @@ module SolidusWms
     end
   end
 end
-
-
