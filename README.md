@@ -1,6 +1,8 @@
 SolidusWms
 ==========
 
+[![Build Status](https://travis-ci.org/madetech/solidus_wms.svg?branch=master)](https://travis-ci.org/madetech/solidus_wms)
+
 Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.
 
 Installation
