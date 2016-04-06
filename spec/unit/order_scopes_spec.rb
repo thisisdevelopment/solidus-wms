@@ -30,7 +30,6 @@ describe Spree::Order do
     let!(:other_order) { create(:order_ready_to_ship) }
 
     before do
-      order.update_column(:completed_at, date)
       other_order.update_column(:completed_at, date - 1.day)
     end
 

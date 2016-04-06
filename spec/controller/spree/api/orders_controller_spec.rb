@@ -46,12 +46,12 @@ describe Spree::Api::OrdersController, type: :controller do
         ActionController::Base.perform_caching = true
         3.times do
           order = create(:order_ready_to_ship)
-          order.update_columns(completed_at: Time.now)
+          order.update_columns(completed_at: (from_time - 10.minutes))
         end
       end
 
       it "returns unique orders" do
-        api_get(:to_export, completed_at: from_time)
+        api_get(:to_export, completed_before: from_time)
 
         orders = json_response[:orders]
         expect(orders.count).to eq 3
