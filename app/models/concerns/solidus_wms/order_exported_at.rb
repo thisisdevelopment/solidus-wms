@@ -12,7 +12,7 @@ module SolidusWms
       end
 
       def self.to_export(timestamp)
-        not_exported.where(shipment_state: 'ready').where("completed_at >= ?", timestamp)
+        not_exported.where(shipment_state: 'ready').where("completed_at <= ?", timestamp)
       end
     end
 
