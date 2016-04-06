@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   # s.version     = SolidusWms::VERSION
   s.version     = '0.0.1'
   s.summary     = 'A WMS extension for solidus'
-  s.description = s.summary
+  s.description = 'Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.'
   s.license     = 'BSD-3-Clause'
 
   s.author    = 'Seb Ashton'

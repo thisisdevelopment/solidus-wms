@@ -1,7 +1,7 @@
 SolidusWms
 ==========
 
-Introduction goes here.
+Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.
 
 Installation
 ------------
