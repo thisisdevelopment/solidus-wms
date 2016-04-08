@@ -1,11 +1,10 @@
-# encoding: UTF-8
-# $:.push File.expand_path('../lib', __FILE__)
-# require 'solidus_wms/version'
+encoding: UTF-8
+$:.push File.expand_path('../lib', __FILE__)
+require 'solidus_wms/version'
 
 Gem::Specification.new do |s|
   s.name        = 'solidus_wms'
-  # s.version     = SolidusWms::VERSION
-  s.version     = '0.0.1'
+  s.version     = SolidusWms::VERSION
   s.summary     = 'A WMS extension for solidus'
   s.description = 'Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.'
   s.license     = 'BSD-3-Clause'
