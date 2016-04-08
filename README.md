@@ -38,4 +38,15 @@ Simply add this require statement to your spec_helper:
 require 'solidus_wms/factories'
 ```
 
+Endpoints
+---------
+
+`/api/shipments/:id/receive` Moves a Shipment from `ready` to `recieved`
+`/api/shipments/:id/pick` Moves a Shipment from `received` to `picked`
+
+`/api/orders/:id/export` Marks an order as exported, by touching the `exported_at`
+`/api/order/to_export` Lists all orders ready to export before a provided timestamp
+
+
+
 Copyright (c) 2016 Seb Ashton and [Made Tech](https://www.madetech.com) released under the New BSD License
