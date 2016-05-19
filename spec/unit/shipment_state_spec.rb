@@ -5,26 +5,42 @@ describe Spree::Shipment do
 
   subject { shipment.state }
 
-  context 'when the shipment is pending' do
+  context 'when the shipment is received' do
     before do
       shipment.receive!
     end
 
     it { is_expected.to eq('received') }
 
-    context 'when the shipment has been received' do
+    it 'also updates order shipment state' do
+      expect(order.shipment_state).to eq('received')
+    end
+
+    context 'when the shipment has been picked' do
       before do
         shipment.pick!
       end
 
       it { is_expected.to eq('picked') }
 
-      context 'when the shipment has been picked' do
+      it 'also updates order shipment state' do
+        expect(order.shipment_state).to eq('picked')
+      end
+
+      context 'when the shipment has been shipped' do
         before do
           shipment.ship!
         end
 
         it { is_expected.to eq('shipped') }
+
+        it 'also updates order shipment state' do
+          expect(order.shipment_state).to eq('shipped')
+        end
+
+        it 'will send out a shipment mailer' do
+          expect(ActionMailer::Base.deliveries).to_not be_empty
+        end
       end
     end
   end

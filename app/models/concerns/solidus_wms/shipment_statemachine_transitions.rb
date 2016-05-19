@@ -18,11 +18,18 @@ module SolidusWms
           transition from: [:ready], to: :shipped, if: :can_transition_from_ready_to_shipped?
           transition from: [:canceled, :picked], to: :shipped
         end
+
+        after_transition to: [:received, :picked, :shipped], do: :update_order_shipment_state
       end
     end
 
     def can_transition_from_ready_to_shipped?
       !order.exported?
+    end
+
+    def update_order_shipment_state
+      update!(order)
+      order.updater.update_shipment_state
     end
   end
 end

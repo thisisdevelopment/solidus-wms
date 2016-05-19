@@ -20,6 +20,7 @@ module SolidusWms
       Spree::Api::OrdersController.include(SolidusWms::AdditionalOrdersApiActions)
 
       Spree::Shipment.include(SolidusWms::ShipmentStatemachineTransitions)
+      Spree::Shipment.prepend(SolidusWms::ShipmentDetermineState)
       Spree::Shipment.whitelisted_ransackable_attributes << 'state'
       Spree::Shipment.whitelisted_ransackable_attributes << 'created_at'
       Spree::Api::ShipmentsController.include(SolidusWms::AdditionalShipmentsApiActions)
