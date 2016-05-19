@@ -1,10 +1,10 @@
 # encoding: UTF-8
-$:.push File.expand_path('../lib', __FILE__)
-require 'solidus_wms/version'
+# $:.push File.expand_path('../lib', __FILE__)
+# require 'solidus_wms/version'
 
 Gem::Specification.new do |s|
   s.name        = 'solidus_wms'
-  s.version     = SolidusWms::VERSION
+  s.version     = '0.0.1'
   s.summary     = 'A WMS extension for solidus'
   s.description = 'Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.'
   s.license     = 'BSD-3-Clause'
@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rubocop', '0.37.2'
   s.add_development_dependency 'rubocop-rspec', '1.4.0'
   s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'spring-commands-rspec', '1.0.4'
   s.add_development_dependency 'sqlite3'
 end

@@ -1,7 +1,7 @@
 SolidusWms
 ==========
 
-[![Build Status](https://travis-ci.org/madetech/solidus_wms.svg?branch=master)](https://travis-ci.org/madetech/solidus_wms)
+[![Build Status](https://travis-ci.org/madetech/solidus_wms.svg?branch=master)](https://travis-ci.org/madetech/solidus_wms) [![Code Climate](https://codeclimate.com/github/madetech/solidus_wms/badges/gpa.svg)](https://codeclimate.com/github/madetech/solidus_wms)  [![Test Coverage](https://codeclimate.com/github/madetech/solidus_wms/badges/coverage.svg)](https://codeclimate.com/github/madetech/solidus-adyen-cse/coverage)
 
 Adds additional API endpoints, and state machine events to the `Spree::Shipment` to provide an integration with your WMS of choice.
 
