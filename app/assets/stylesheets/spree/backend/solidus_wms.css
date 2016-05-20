@@ -2,3 +2,13 @@
 Placeholder manifest file.
 the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/backend/all.css'
 */
+
+$color-ste-picked-bg: $color-success !default;
+$color-ste-recieved-bg: $color-success !default;
+
+$color-ste-picked-text: $color-1 !default;
+$color-ste-recieved-text: $color-1 !default;
+
+$statuses: append($statuses, picked, recieved);
+$states-bg-colors: append($states-bg-colors, $color-ste-picked-bg, $color-ste-recieved-bg);
+$states-text-colors: append($states-text-colors, $color-ste-picked-text, $color-ste-recieved-text);
