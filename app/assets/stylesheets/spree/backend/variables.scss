@@ -1,0 +1,9 @@
+$color-ste-picked-bg: $color-success !default;
+$color-ste-recieved-bg: $color-success !default;
+
+$color-ste-picked-text: $color-1 !default;
+$color-ste-recieved-text: $color-1 !default;
+
+$statuses: append($statuses, picked, recieved) !default;
+$states-bg-colors: append($states-bg-colors, $color-ste-picked-bg, $color-ste-recieved-bg) !default;
+$states-text-colors: append($states-text-colors, $color-ste-picked-text, $color-ste-recieved-text) !default;
