@@ -30,6 +30,7 @@ module SolidusWms
     def update_order_shipment_state
       update!(order)
       order.updater.update_shipment_state
+      order.save
     end
   end
 end
