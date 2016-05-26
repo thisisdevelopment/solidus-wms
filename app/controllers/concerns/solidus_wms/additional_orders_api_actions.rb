@@ -15,7 +15,7 @@ module SolidusWms
 
     def to_export
       authorize! :index, Spree::Order
-      @orders = Spree::Order.to_export(params[:completed_before])
+      @orders = Spree::Order.by_store(current_store).to_export(params[:completed_before])
       respond_with(@orders, default_template: :to_export)
     end
   end
