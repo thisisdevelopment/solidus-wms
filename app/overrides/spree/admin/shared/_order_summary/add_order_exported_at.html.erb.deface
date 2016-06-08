@@ -1,0 +1,5 @@
+<!-- insert_bottom '#order_tab_summary .additional-info' -->
+<% if @order.exported? %>
+  <dt data-hook='admin_order_tab_date_exported_title'><%= Spree.t(:date_exported) %>:</dt>
+  <dd id='date_complete'><%= pretty_time(@order.exported_at) %></dd>
+<% end %>

@@ -6,3 +6,4 @@ en:
     shipment_states:
       picked: picked
       recieved: recieved
+    date_exported: Date Exported
