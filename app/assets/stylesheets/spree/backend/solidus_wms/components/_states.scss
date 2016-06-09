@@ -5,15 +5,15 @@
 $color-ste-picked-bg: $color-notice !default;
 $color-ste-picked-text: $color-1 !default;
 
-$color-ste-recieved-bg: $color-notice !default;
-$color-ste-recieved-text: $color-1 !default;
+$color-ste-received-bg: $color-notice !default;
+$color-ste-received-text: $color-1 !default;
 
 $color-ste-delivered-bg: $color-success !default;
 $color-ste-delivered-text: $color-1 !default;
 
-$additional-states: picked, recieved, delivered !default;
-$additional-states-bg-colors: $color-ste-picked-bg, $color-ste-recieved-bg, $color-ste-delivered-bg !default;
-$additional-states-text-colors: $color-ste-picked-text, $color-ste-recieved-text, $color-ste-delivered-text !default;
+$additional-states: picked, received, delivered !default;
+$additional-states-bg-colors: $color-ste-picked-bg, $color-ste-received-bg, $color-ste-delivered-bg !default;
+$additional-states-text-colors: $color-ste-picked-text, $color-ste-received-text, $color-ste-delivered-text !default;
 
 
 .state {
