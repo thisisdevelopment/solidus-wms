@@ -1,5 +1,5 @@
 # encoding: UTF-8
-$:.push File.expand_path('../lib', __FILE__)
+$:.push File.expand_path('./lib', File.dirname(__FILE__))
 require 'solidus_wms/version'
 
 Gem::Specification.new do |s|
