@@ -6,6 +6,9 @@ cache: bundler
 language: ruby
 bundler_args: --quiet
 script:
-  - bundle exec rake
+- bundle exec rake
 rvm:
-  - 2.1.5
+- 2.1.5
+notifications:
+  slack:
+    secure: sNLeSW2vfcUW7yEszB9SHy3YSxR+KiuEJA/kfoemVT65rJxZjtwbzc0N7Leo7JjC/8TlDR7hiKilxz9ZQ3odpGtxXPucaPGlal2AEX4lzyoiPtpC2mqFv4U6z+LkALXkKHSRRFoopIgGYsPpm9QjM0b3OWuseXdl0yF2RGrkgKY9kGJXhiEcr/GBfr0qPPGiak0Blc4rV5rVLt0Fgh9Nm7Xsm+hH8iH2KNhLw8ys9+5K39kztkb7VRaIxE5hS4s5HIT2B/QCGb5Qy3ct10UVz8jfUg3uTdjjOfgKtF+7mRGzCQnyYdtUB0ferhTTskYCk50I+b6rBKjTYlVFueUpz5aMSEIqJXloZTKxVqbf0rrILv9IKBxyCkH3LTbGWHRWwW/a3ZcBNGsQqHQYFYm2DiYmOAe5LEQVjFowUoPAjZ9p9WiDUCSSIaWONEbfEvwE4q3RpDQNAlJsHsFuZzL+zVU5qqG0k4m73k/Q4/zJ9EQE9JikPUv0yUAu5ZbAm0FyBzLulLxXtY0QJB6IhbQg8CoVvcJ8WSpxlnT66kTPBw5EME5WlEL9YKgBIXSh9kv+Zn2tifOZg10Z7n2zZa2BCBTupaHF9JYS/24W93YpdVymGDyBy2zFMMWoHwTZmOFQn/1VBA6+KNmDIckwIqksBTsc3DTu0HWXU2/ho+FH7aY=
