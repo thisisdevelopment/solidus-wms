@@ -17,6 +17,8 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'solidus_core', '~> 1.2'
+  s.add_dependency 'zip-zip', '0.3'
+  s.add_dependency 'axlsx', '2.0.1'
 
   s.add_development_dependency 'byebug', '8.2.1'
   s.add_development_dependency 'capybara'

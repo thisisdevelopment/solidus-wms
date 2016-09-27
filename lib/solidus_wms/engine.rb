@@ -10,6 +10,10 @@ module SolidusWms
       g.test_framework :rspec
     end
 
+    initializer 'solidus_wms.environment', before: 'spree.environment' do
+      Spree::WmsConfig = SolidusWms::Configuration.new
+    end
+
     def self.activate
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
@@ -22,6 +26,7 @@ module SolidusWms
       Spree::Order.include(SolidusWms::OrderExportedAt)
       Spree::Order.whitelisted_ransackable_attributes << 'exported_at'
       Spree::Api::OrdersController.include(SolidusWms::AdditionalOrdersApiActions)
+      Spree::OrdersController.include(SolidusWms::AdditionalOrdersActions)
 
       Spree::Shipment.include(SolidusWms::ShipmentStatemachineTransitions)
       Spree::Shipment.prepend(SolidusWms::ShipmentDetermineState)
