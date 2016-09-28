@@ -35,7 +35,7 @@ module SolidusWms
 
     def authenticate_basic_auth
       authenticate_or_request_with_http_basic do |username, password|
-        username == ENV.fetch('WMS_BASIC_AUTH_USER') && password == ENV.fetch('WMS_BASIC_AUTH_PASS')
+        username == ENV.fetch('HTTP_AUTH_USER') && password == ENV.fetch('HTTP_AUTH_PASS')
       end
     end
   end
