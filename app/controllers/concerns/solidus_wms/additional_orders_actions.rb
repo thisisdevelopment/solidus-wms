@@ -10,12 +10,11 @@ module SolidusWms
 
     def export_xlsx
       exporter = Spree::WmsConfig.order_xls_export_class.new
+      tempfile = Tempfile.new('spree_orders.xlsx')
+      xlsx_file_contents(exporter).serialize(tempfile.path)
+      Spree::WmsConfig.order_xls_export_mailer_class.latest(tempfile.path).deliver_now
 
-      Mime::Type.register 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :xlsx
-
-      send_data(xlsx_file_contents(exporter).to_stream.string,
-                type: Mime::XLSX,
-                disposition: 'attachment; filename=orders.xlsx')
+      render nothing: true
     end
 
     private
