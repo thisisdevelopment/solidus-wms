@@ -47,6 +47,31 @@ Endpoints
 `/api/orders/:id/export` Marks an order as exported, by touching the `exported_at`
 `/api/order/to_export` Lists all orders ready to export before a provided timestamp
 
+`/xlsx-export/orders` Basic auth protected endpoint to export orders to .xlsx
 
+Excel Order export
+-------------------
+
+In your host application, create the following configuration:
+
+`Spree::WmsConfig.order_xls_export_class = Exporter::Xlsx::Order`
+
+This class needs to provide the custom application specific data to the Axlsx exporter
+An example of this data structure is:
+```
+   [
+      {
+        name: 'Worksheet 1',
+        headers: [
+          'Create Date',
+          'Status',
+        ],
+        orders: [
+          [order_1.created_at, 'complete'],
+          [order_2.created_at, 'complete'],
+        ]
+      }
+    ]
+```
 
 Copyright (c) 2016 Seb Ashton and [Made Tech](https://www.madetech.com) released under the New BSD License
