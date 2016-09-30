@@ -13,6 +13,7 @@ module SolidusWms
       tempfile = Tempfile.new('spree_orders.xlsx')
       xlsx_file_contents(exporter).serialize(tempfile.path)
       Spree::WmsConfig.order_xls_export_mailer_class.latest(tempfile.path).deliver_now
+      exporter.on_success
 
       render nothing: true
     end
