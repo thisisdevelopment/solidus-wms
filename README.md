@@ -74,4 +74,7 @@ An example of this data structure is:
     ]
 ```
 
+There is an #on_success callback that can be used for custom functionality in the host application.
+In our case we use it to exclude already exported orders.
+
 Copyright (c) 2016 Seb Ashton and [Made Tech](https://www.madetech.com) released under the New BSD License
