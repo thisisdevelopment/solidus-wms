@@ -9,30 +9,12 @@ module SolidusWms
     end
 
     def export_xlsx
-      exporter = Spree::WmsConfig.order_xls_export_class.new
-      tempfile = Tempfile.new('spree_orders.xlsx')
-      xlsx_file_contents(exporter).serialize(tempfile.path)
-      Spree::WmsConfig.order_xls_export_mailer_class.latest(tempfile.path).deliver_now
-      exporter.try(:on_success)
-
+      exporter = Wms::OrderExporter.new(Spree::WmsConfig.order_xls_export_class.new)
+      exporter.export_xlsx_to_file(Wms::AttachmentMailer.new)
       render nothing: true
     end
 
     private
-
-    def xlsx_file_contents(exporter)
-      ::Axlsx::Package.new do |p|
-        exporter.worksheets.each do |order_group|
-          p.workbook.add_worksheet(name: order_group.fetch(:name)) do |sheet|
-            sheet.add_row order_group.fetch(:headers)
-
-            order_group.fetch(:orders).each do |order|
-              sheet.add_row order
-            end
-          end
-        end
-      end
-    end
 
     def authenticate_basic_auth
       authenticate_or_request_with_http_basic do |username, password|
