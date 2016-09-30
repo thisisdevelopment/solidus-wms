@@ -4,7 +4,7 @@ module Wms
       @spreadsheet_exporter = spreadsheet_exporter
     end
 
-    def export_xlsx_to_file(presenter)
+    def export_xlsx(presenter)
       tempfile = Tempfile.new('spree_orders.xlsx')
       xlsx_file_contents.serialize(tempfile.path)
       presenter.present(tempfile.path)

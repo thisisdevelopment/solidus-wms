@@ -10,7 +10,7 @@ module SolidusWms
 
     def export_xlsx
       exporter = Wms::OrderExporter.new(Spree::WmsConfig.order_xls_export_class.new)
-      exporter.export_xlsx_to_file(Wms::AttachmentMailer.new)
+      exporter.export_xlsx(Wms::AttachmentMailer.new)
       render nothing: true
     end
 
