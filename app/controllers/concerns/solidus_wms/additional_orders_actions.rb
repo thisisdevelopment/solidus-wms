@@ -24,7 +24,7 @@ module SolidusWms
     end
 
     def permitted_mailer_params
-      params.permit(:recipients)
+      params.permit(recipients: [])
     end
   end
 end
