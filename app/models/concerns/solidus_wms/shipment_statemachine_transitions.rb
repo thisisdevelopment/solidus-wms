@@ -20,11 +20,16 @@ module SolidusWms
         end
 
         after_transition to: [:received, :picked, :shipped], do: :update_order_shipment_state
+        after_transition to: :received, do: :mark_received
       end
     end
 
     def can_transition_from_ready_to_shipped?
       !order.exported?
+    end
+
+    def mark_received
+      touch :received_at
     end
 
     def update_order_shipment_state

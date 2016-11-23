@@ -12,6 +12,8 @@ describe Spree::Shipment do
 
     it { is_expected.to eq('received') }
 
+    it { expect(shipment.received_at).to be_present }
+
     it 'also updates order shipment state' do
       expect(order.shipment_state).to eq('received')
     end
