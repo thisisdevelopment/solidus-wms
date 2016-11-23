@@ -10,7 +10,8 @@ module SolidusWms
 
     def export_xlsx
       exporter = Wms::OrderExporter.new(Spree::WmsConfig.order_xls_export_class.new)
-      exporter.export_xlsx(Wms::AttachmentMailer.new)
+      recipients = permitted_mailer_params[:recipients]
+      exporter.export_xlsx(Wms::AttachmentMailer.new(recipients: recipients))
       render nothing: true
     end
 
@@ -20,6 +21,10 @@ module SolidusWms
       authenticate_or_request_with_http_basic do |username, password|
         username == ENV.fetch('HTTP_AUTH_USER') && password == ENV.fetch('HTTP_AUTH_PASS')
       end
+    end
+
+    def permitted_mailer_params
+      params.permit(:recipients)
     end
   end
 end
