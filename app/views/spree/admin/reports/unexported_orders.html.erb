@@ -27,7 +27,7 @@
     </thead>
     <tbody>
     <% @orders.each do |order| %>
-      <tr class="<%= order.completed_at > 3.days.ago ? 'state-canceled' : '' %>
+      <tr class="<%= order.completed_at < 3.days.ago ? 'state-canceled' : '' %>
                  <%= cycle('odd', 'even') %>">
         <td class="align-center">
           <%= l(order.completed_at).to_date %></td>
