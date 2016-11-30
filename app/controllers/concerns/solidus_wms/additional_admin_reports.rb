@@ -13,7 +13,7 @@ module SolidusWms
       if params[:q][:completed_at_gt].blank?
         params[:q][:completed_at_gt] = Time.zone.now.beginning_of_month
       else
-        params[:q][:completed_at_gt] = Time.zone.parse(params[:q][:created_at_gt]).beginning_of_day rescue Time.zone.now.beginning_of_month
+        params[:q][:completed_at_gt] = parsed_completed_at_time
       end
 
       params[:q][:store_id_eq] = current_store.id unless params[:q][:store_id_eq].present?
@@ -22,6 +22,14 @@ module SolidusWms
 
       @search = Spree::Order.complete.ransack(params[:q])
       @orders = @search.result
+    end
+
+    private
+
+    def parsed_completed_at_time
+      Time.zone.parse(params[:q][:created_at_gt]).beginning_of_day
+    rescue
+      Time.zone.now.beginning_of_month
     end
   end
 end
