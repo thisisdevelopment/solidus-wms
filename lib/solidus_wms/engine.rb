@@ -32,6 +32,8 @@ module SolidusWms
       Spree::Api::OrdersController.include(SolidusWms::AdditionalOrdersApiActions)
       Spree::OrdersController.include(SolidusWms::AdditionalOrdersActions)
 
+      Spree::Admin::ReportsController.prepend(SolidusWms::AdditionalAdminReports)
+
       Spree::Shipment.include(SolidusWms::ShipmentStatemachineTransitions)
       Spree::Shipment.prepend(SolidusWms::ShipmentDetermineState)
       Spree::Shipment.whitelisted_ransackable_attributes << 'state'

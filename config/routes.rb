@@ -7,5 +7,14 @@ Spree::Core::Engine.routes.draw do
     put '/orders/:id/export', to: 'orders#export', as: :order_export
   end
 
+  namespace :admin do
+    resources :reports, only: [:index] do
+      collection do
+        get :unexported_orders
+        post :unexported_orders
+      end
+    end
+  end
+
   get '/xlsx-export/orders', to: 'orders#export_xlsx', as: :order_export_xlsx
 end

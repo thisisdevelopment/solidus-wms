@@ -1,0 +1,11 @@
+<%= search_form_for @search, url: spree.unexported_orders_admin_reports_path do |s| %>
+  <div class="field">
+    <%= label_tag :q_completed_at_gt, 'Since', class: 'inline' %>
+    <%= s.text_field :completed_at_gt, class: 'datepicker datepicker-from',
+                                       value: datepicker_field_value(params[:q][:completed_at_gt]) %>
+  </div>
+
+  <div class="actions filter-actions">
+    <%= button Spree.t(:search), 'search'  %>
+  </div>
+<% end %>

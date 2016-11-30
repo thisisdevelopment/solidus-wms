@@ -18,4 +18,5 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
   config.include Spree::TestingSupport::Flash
+  config.include Spree::TestingSupport::AuthorizationHelpers
 end
