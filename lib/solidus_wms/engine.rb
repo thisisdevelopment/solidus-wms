@@ -27,6 +27,10 @@ module SolidusWms
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
 
+      Dir.glob(File.join(File.dirname(__FILE__), '../../lib/spree/**/*.rb')) do |c|
+        Rails.configuration.cache_classes ? require(c) : load(c)
+      end
+
       Spree::Order.include(SolidusWms::OrderExportedAt)
       Spree::Order.whitelisted_ransackable_attributes << 'exported_at'
       Spree::Api::OrdersController.include(SolidusWms::AdditionalOrdersApiActions)
