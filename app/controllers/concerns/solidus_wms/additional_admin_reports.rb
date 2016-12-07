@@ -20,7 +20,7 @@ module SolidusWms
 
       params[:q][:s] = 'completed_at desc'
 
-      @search = Spree::Order.complete.ransack(params[:q])
+      @search = Spree::Order.complete.not_exported.ransack(params[:q])
       @orders = @search.result
     end
 
