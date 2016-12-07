@@ -36,4 +36,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'codeclimate-test-reporter'
   s.add_development_dependency 'spring-commands-rspec', '1.0.4'
   s.add_development_dependency 'sqlite3'
+  s.add_development_dependency 'rake', '11.1.2'
 end
