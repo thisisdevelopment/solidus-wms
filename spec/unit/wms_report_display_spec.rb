@@ -19,4 +19,3 @@ describe Spree::PermissionSets::WmsReportDisplay do
     it { is_expected.not_to be_able_to(:unexported_orders, :reports) }
   end
 end
-
