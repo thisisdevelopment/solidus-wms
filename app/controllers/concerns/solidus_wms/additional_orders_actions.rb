@@ -5,6 +5,7 @@ module SolidusWms
     extend ActiveSupport::Concern
 
     included do
+      skip_before_action :check_authorization
       before_filter :authenticate_basic_auth, only: [:export_xlsx]
     end
 
