@@ -4,7 +4,7 @@ module SolidusWms
 
     included do
       skip_before_action :find_order, only: [:to_export]
-      skip_filter :lock_order, only: [:to_export]
+      skip_around_filter :lock_order, only: [:to_export]
     end
 
     def export

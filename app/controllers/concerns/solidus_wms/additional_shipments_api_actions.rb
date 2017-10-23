@@ -5,7 +5,7 @@ module SolidusWms
     included do
       alias_method :wms_lock_order, :lock_order
 
-      skip_filter :lock_order, only: [:pick, :receive]
+      skip_around_filter :lock_order, only: [:pick, :receive]
       before_filter :wms_find_shipment, only: [:pick, :receive]
       around_filter :wms_lock_order, only: [:pick, :receive]
     end
