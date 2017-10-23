@@ -6,7 +6,7 @@ module SolidusWms
 
     included do
       skip_before_action :check_authorization
-      before_filter :authenticate_basic_auth, only: [:export_xlsx]
+      before_action :authenticate_basic_auth, only: [:export_xlsx]
     end
 
     def export_xlsx

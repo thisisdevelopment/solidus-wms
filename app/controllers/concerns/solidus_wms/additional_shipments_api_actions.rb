@@ -6,8 +6,8 @@ module SolidusWms
       alias_method :wms_lock_order, :lock_order
 
       skip_around_action :lock_order, only: [:pick, :receive]
-      before_filter :wms_find_shipment, only: [:pick, :receive]
-      around_filter :wms_lock_order, only: [:pick, :receive]
+      before_action :wms_find_shipment, only: [:pick, :receive]
+      around_action :wms_lock_order, only: [:pick, :receive]
     end
 
     def pick
