@@ -13,7 +13,7 @@ module SolidusWms
       exporter = Wms::OrderExporter.new(Spree::WmsConfig.order_xls_export_class.new)
       recipients = permitted_mailer_params[:recipients]
       exporter.export_xlsx(Wms::AttachmentMailer.new(recipients: recipients))
-      render nothing: true
+      render body: nil
     end
 
     private
