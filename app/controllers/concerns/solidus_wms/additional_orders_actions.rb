@@ -6,14 +6,14 @@ module SolidusWms
 
     included do
       skip_before_action :check_authorization
-      before_filter :authenticate_basic_auth, only: [:export_xlsx]
+      before_action :authenticate_basic_auth, only: [:export_xlsx]
     end
 
     def export_xlsx
       exporter = Wms::OrderExporter.new(Spree::WmsConfig.order_xls_export_class.new)
       recipients = permitted_mailer_params[:recipients]
       exporter.export_xlsx(Wms::AttachmentMailer.new(recipients: recipients))
-      render nothing: true
+      render body: nil
     end
 
     private

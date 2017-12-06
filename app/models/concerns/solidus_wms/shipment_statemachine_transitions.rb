@@ -34,9 +34,7 @@ module SolidusWms
 
     def update_order_shipment_state
       update!(order)
-      order.updater.update_shipment_state
-      order.updater.run_hooks
-      order.updater.persist_totals
+      order.updater.update
     end
   end
 end
