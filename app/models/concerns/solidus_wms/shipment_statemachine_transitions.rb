@@ -14,8 +14,8 @@ module SolidusWms
 
         event :ship do
           reset
-
           transition from: [:ready], to: :shipped, if: :can_transition_from_ready_to_shipped?
+          transition from: [:received], to: :shipped, if: :can_transition_from_received_to_shipped?
           transition from: [:canceled, :picked], to: :shipped
         end
 
@@ -26,6 +26,10 @@ module SolidusWms
 
     def can_transition_from_ready_to_shipped?
       !order.exported?
+    end
+
+    def can_transition_from_received_to_shipped?
+      true
     end
 
     def mark_received
