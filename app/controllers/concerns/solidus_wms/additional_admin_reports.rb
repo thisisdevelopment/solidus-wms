@@ -21,10 +21,18 @@ module SolidusWms
       params[:q][:s] = 'completed_at desc'
 
       @search = Spree::Order.complete.not_exported.ransack(params[:q])
-      @orders = @search.result
+      @orders = orders_with_relations
     end
 
     private
+
+    def orders_with_relations
+      if current_store.use_stock
+        @search.result.includes(:line_items, :variants)
+      else
+        @search.result
+      end
+    end
 
     def parsed_completed_at_time
       Time.zone.parse(params[:q][:created_at_gt]).beginning_of_day
