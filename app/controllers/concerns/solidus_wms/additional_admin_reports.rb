@@ -18,7 +18,7 @@ module SolidusWms
 
       params[:q][:store_id_eq] = current_store.id unless params[:q][:store_id_eq].present?
 
-      params[:q][:s] = 'completed_at desc' unless params[:q]
+      params[:q][:s] = 'completed_at desc' unless params[:q][:s].present?
 
       @search = Spree::Order.complete.not_exported.ransack(params[:q])
       @orders = orders_with_relations.page(params[:page]).per(Spree::Config[:orders_per_page])
