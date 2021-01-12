@@ -1,3 +1,6 @@
+<% admin_layout "full-width" %>
+<% admin_breadcrumb(plural_resource_name(Spree::Order)) %>
+
 <% content_for :page_title do %>
   <%= Spree.t(:unexported_orders) %>
 <% end %>
@@ -15,15 +18,16 @@
 <% end %>
 
 <% if @orders.any? %>
+  <%= paginate @orders, theme: "solidus_admin" %>
   <table class="admin-report" data-hook>
     <thead>
     <tr>
-      <th><%= I18n.t(:completed_at, scope: 'activerecord.attributes.spree/order') %></th>
-      <th><%= I18n.t(:number, scope: 'activerecord.attributes.spree/order') %></th>
+      <th><%= sort_link @search, :completed_at %></th>
+      <th><%= sort_link @search, :number %></th>
       <th><%= I18n.t(:state, scope: 'activerecord.attributes.spree/order') %></th>
       <th><%= I18n.t(:shipment_state, scope: 'activerecord.attributes.spree/order') %></th>
       <th><%= I18n.t(:email, scope: 'activerecord.attributes.spree/order') %></th>
-      <th><%= I18n.t(:total, scope: 'activerecord.attributes.spree/order') %></th>
+      <th><%= sort_link @search, :total %></th>
       <% if current_store.use_stock %>
         <th> <%= I18n.t(:stock, scope: 'activerecord.attributes.spree/order') %> </th>
       <% end %>
@@ -64,4 +68,5 @@
     <% end %>
     </tbody>
   </table>
+  <%= paginate @orders, theme: "solidus_admin" %>
 <% end %>
