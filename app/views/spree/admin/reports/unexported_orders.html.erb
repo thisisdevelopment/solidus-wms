@@ -70,6 +70,6 @@
   </table>
   <div>
     <%= paginate @orders, theme: "solidus_admin" %>
-    <p class="text-center">Total orders <b><%= @total_orders %></b></p>
+    <p class="text-center"><%= Spree.t(:total_orders) %> <b><%= @total_orders %></b></p>
   </div>
 <% end %>
