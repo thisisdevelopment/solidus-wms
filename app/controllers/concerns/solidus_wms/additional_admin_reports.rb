@@ -18,7 +18,7 @@ module SolidusWms
 
       @search = Spree::Order.complete.not_exported.ransack(params[:q])
       @orders = orders_with_relations.page(params[:page]).per(Spree::Config[:orders_per_page])
-      @total_orders = @orders.count
+      @total_orders = orders_with_relations.count
     end
 
     private
